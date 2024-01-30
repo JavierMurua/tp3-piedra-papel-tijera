@@ -3,21 +3,26 @@ let playerScore = 0;
 let computerScore = 0;
 
 const playerTurn =() => {
-    let input = prompt("Escribe piedra, papel o tijera","Piedra");
+    defaultValue = randomDefaultValue();
+    let input = prompt("Escribe piedra, papel o tijera",defaultValue);
     return input;
 }
 
 // Comprobar que playerSelection es válido
 const validatePlayerSelection = () => {
     let playerSelection = playerTurn();
-    if (playerSelection.toLowerCase().trim() === "piedra"
+    /*if (playerSelection === null || playerSelection === undefined){
+        console.log("Input del usuario nulo")
+        playerSelection = "";
+        compareSelections();
+    }else*/ if (playerSelection.toLowerCase().trim() === "piedra"
     || playerSelection.toLowerCase().trim() === "papel"
     || playerSelection.toLowerCase().trim() === "tijera"){
         console.log("input del usuario aceptado")
         return playerSelection.toLowerCase().trim();
     } else {
         console.log("input del usuario no válido")
-        playGame();
+        compareSelections();
     }
 }
 
@@ -25,6 +30,14 @@ const getComputerChoice = () =>{
     let options = ["piedra", "papel", "tijera"];
     let randomChoice = Math.floor(Math.random() * 3);
     console.log("la computadora eligió " + randomChoice)
+    return options[randomChoice];
+
+}
+
+
+const randomDefaultValue = () =>{
+    let options = ["piedra", "papel", "tijera"];
+    let randomChoice = Math.floor(Math.random() * 3);
     return options[randomChoice];
 
 }
@@ -56,16 +69,16 @@ const compareSelections = () =>{
 
 const whoWin = () => {
     if (playerScore > computerScore) {
-        return alert("El jugador ganó con " + playerScore + " puntos");
+        return alert("El jugador ganó con " + playerScore + " rondas ganadas");
     } else {
-        return alert("Ganó la computadora con " + computerScore + " puntos");
+        return alert("Ganó la computadora con " + computerScore + " rondas ganadas");
     }
 }
 
 
 
 const endGame = () => {
-    console.log("El juego ha terminado, Wuacho")
+    console.log("El juego ha terminado")
     whoWin();
     playerScore = 0;
     computerScore = 0;
