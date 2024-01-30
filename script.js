@@ -18,7 +18,7 @@ const validatePlayerSelection = () => {
     }else*/ if (playerSelection.toLowerCase().trim() === "piedra"
     || playerSelection.toLowerCase().trim() === "papel"
     || playerSelection.toLowerCase().trim() === "tijera"){
-        console.log("input del usuario aceptado")
+        //console.log("input del usuario aceptado")
         return playerSelection.toLowerCase().trim();
     } else {
         console.log("input del usuario no válido")
@@ -29,7 +29,7 @@ const validatePlayerSelection = () => {
 const getComputerChoice = () =>{
     let options = ["piedra", "papel", "tijera"];
     let randomChoice = Math.floor(Math.random() * 3);
-    console.log("la computadora eligió " + randomChoice)
+    //console.log("la computadora eligió " + randomChoice)
     return options[randomChoice];
 
 }
@@ -44,9 +44,9 @@ const randomDefaultValue = () =>{
 
 const compareSelections = () =>{
     let playerSelection = validatePlayerSelection();
-    console.log(playerSelection)
+    console.log("El jugador elige " + playerSelection)
     let computerChoice = getComputerChoice();
-    console.log("La computadora elige "+ computerChoice)
+    console.log("La computadora elige " + computerChoice)
 
     if (playerSelection === computerChoice){
         console.log("Empate")
@@ -97,5 +97,3 @@ const playGame = () => {
 }
 
 playGame();
-//validatePlayerSelection();
-//console.log(playerTurn());
