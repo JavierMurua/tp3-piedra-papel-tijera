@@ -1,5 +1,5 @@
 const playerTurn =() => {
-    let input = prompt("Escribe piedra, papel o tijera","");
+    let input = prompt("Escribe piedra, papel o tijera","Piedra");
     return input;
 }
 
@@ -33,7 +33,7 @@ const compareSelections = () =>{
 
     if (playerSelection === computerChoice){
         console.log("Empate")
-        playGame();
+        compareSelections();
     } else if (playerSelection === "papel" && computerChoice === "piedra") {
         console.log("el jugador gana porque eligió " + playerSelection + " y la computadora eligió " + computerChoice)
         
@@ -50,8 +50,34 @@ const compareSelections = () =>{
 
 }
 
+/*
+const playerScore = () => {
+    let playerScore = 0;
+    playerScore++;
+    return playerScore;
+
+}
+
+const computerScore = () => {
+    let computerScore = 0;
+    computerScore++;
+    return computerScore;
+}*/
+
+const endGame = () => {
+    console.log("El juego ha terminado, Wuacho")
+}
+
+const roundCounter = () =>{
+    for (let i = 5; i > 0; i--){
+        compareSelections();
+
+    }
+        endGame();
+}
+
 const playGame = () => {
-    compareSelections();
+    roundCounter();
 }
 
 playGame();

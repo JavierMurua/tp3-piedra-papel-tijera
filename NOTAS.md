@@ -105,4 +105,4 @@
     - [x] La computadora eliege una de las 3 opciones de forma aleatoria.
     - [x] Se comparan las opciones del usuario y de la computadora.
     - [ ] Se suma un punto al ganador de la ronda y se descuenta una ronda de las 5.
-    - [ ] Al llegar al pasar las 5 rondas, se comparan los puntos y se dictamina un ganador.
+    - [x] Al llegar al pasar las 5 rondas, se comparan los puntos y se dictamina un ganador.
