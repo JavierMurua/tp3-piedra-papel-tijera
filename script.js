@@ -1,3 +1,7 @@
+
+let playerScore = 0;
+let computerScore = 0;
+
 const playerTurn =() => {
     let input = prompt("Escribe piedra, papel o tijera","Piedra");
     return input;
@@ -35,43 +39,42 @@ const compareSelections = () =>{
         console.log("Empate")
         compareSelections();
     } else if (playerSelection === "papel" && computerChoice === "piedra") {
-        console.log("el jugador gana porque eligió " + playerSelection + " y la computadora eligió " + computerChoice)
-        
+        console.log("El jugador gana porque eligió " + playerSelection + " y la computadora eligió " + computerChoice)
+        playerScore++;
     } else if (playerSelection === "tijera" && computerChoice === "papel") {
-        console.log("el jugador gana porque eligió " + playerSelection + " y la computadora eligió " + computerChoice)
-        
+        console.log("El jugador gana porque eligió " + playerSelection + " y la computadora eligió " + computerChoice)
+        playerScore++;
     } else if (playerSelection === "piedra" && computerChoice === "tijera") {
-        console.log("el jugador gana porque eligió " + playerSelection + " y la computadora eligió " + computerChoice)
-        
+        console.log("El jugador gana porque eligió " + playerSelection + " y la computadora eligió " + computerChoice)
+        playerScore++;
     } else {
         console.log("La computadora gana porque eligió " + computerChoice + " y el jugador eligió " + playerSelection)
-        
+        computerScore++;
     }
 
 }
 
-/*
-const playerScore = () => {
-    let playerScore = 0;
-    playerScore++;
-    return playerScore;
-
+const whoWin = () => {
+    if (playerScore > computerScore) {
+        return alert("El jugador ganó con " + playerScore + " puntos");
+    } else {
+        return alert("Ganó la computadora con " + computerScore + " puntos");
+    }
 }
 
-const computerScore = () => {
-    let computerScore = 0;
-    computerScore++;
-    return computerScore;
-}*/
+
 
 const endGame = () => {
     console.log("El juego ha terminado, Wuacho")
+    whoWin();
+    playerScore = 0;
+    computerScore = 0;
+    playGame();
 }
 
 const roundCounter = () =>{
     for (let i = 5; i > 0; i--){
         compareSelections();
-
     }
         endGame();
 }
